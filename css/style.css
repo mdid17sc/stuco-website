@@ -124,3 +124,13 @@ footer { margin-top: 0; }
 .tl-body .t { display: inline-block; min-width: 7.5rem; font-weight: 600; color: var(--maroon); }
 .tl-body em { opacity: .75; }
 @media (max-width: 600px) { .tl-day { grid-template-columns: 1fr; gap: .25rem; } .tl-body .t { display: block; } }
+
+/* Countdown arrows */
+.cd-row { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-bottom: 1rem; }
+.cd-row[hidden] { display: none; }
+.cd-row .cd { margin-bottom: 0; }
+.cd-arrow { width: 2rem; height: 3.5rem; flex: none; color: #f2c14e; animation: cd-bounce 1.2s ease-in-out infinite; }
+.cd-arrow-r { animation-delay: .6s; }
+@keyframes cd-bounce { 0%, 100% { transform: translateY(-8px); opacity: .55; } 50% { transform: translateY(8px); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .cd-arrow { animation: none; } }
+@media (max-width: 640px) { .cd-arrow { display: none; } }

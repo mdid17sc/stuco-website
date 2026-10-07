@@ -22,7 +22,7 @@ if (banner) {
   function tick() {
     var now = Date.now();
     var target = now < start ? start : end;
-    if (now >= end) { label.textContent = 'Halloween Week has ended. See you next year!'; box.hidden = true; return; }
+    if (now >= end) { label.textContent = 'Halloween Week has ended. See you next year!'; box.hidden = true; box.parentElement.hidden = true; return; }
     label.textContent = now < start ? 'Starts in' : 'Happening now! Ends in';
     var diff = Math.max(0, target - now);
     set('cd-d', Math.floor(diff / 864e5));
