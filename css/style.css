@@ -138,3 +138,16 @@ footer { margin-top: 0; }
 /* Pillar page titles: number on line 1, name on line 2 (never wraps) */
 .hero h1.pillar-title { max-width: none; font-size: clamp(1.3rem, 6vw, 3.4rem); }
 .pillar-title .nw { white-space: nowrap; }
+
+/* Feedback pillar: hand-drawn scribble pointing at the Give Feedback nav link */
+body.has-doodle { position: relative; }
+.doodle { position: absolute; inset: 0 0 auto 0; height: 0; z-index: 60; pointer-events: none; }
+.doodle-svg { position: absolute; left: 0; top: 0; overflow: visible; }
+.d-line, .d-head { stroke: #ff7a1a; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
+.d-line { stroke-dashoffset: var(--len, 600); animation: doodle-draw 4.2s ease-in-out infinite; }
+.d-head { opacity: 0; animation: doodle-head 4.2s ease-in-out infinite; }
+@keyframes doodle-draw { 0% { stroke-dashoffset: var(--len, 600); opacity: 1; } 38% { stroke-dashoffset: 0; } 88% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes doodle-head { 0%, 36% { opacity: 0; } 42%, 88% { opacity: 1; } 100% { opacity: 0; } }
+.doodle-note { position: absolute; display: inline-block; max-width: 17rem; font-family: 'Caveat', 'Comic Sans MS', cursive; font-size: 1.75rem; line-height: 1.05; font-weight: 700; color: #ff7a1a; text-decoration: none; text-align: center; transform: rotate(-5deg); text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px rgba(255,255,255,.9), 1px 1px 0 rgba(0,0,0,.25); pointer-events: auto; animation: doodle-wiggle 2.4s ease-in-out infinite; }
+@keyframes doodle-wiggle { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(-2deg) translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .d-line { animation: none; stroke-dashoffset: 0; } .d-head { animation: none; opacity: 1; } .doodle-note { animation: none; } }
