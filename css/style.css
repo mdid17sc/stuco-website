@@ -134,3 +134,7 @@ footer { margin-top: 0; }
 @keyframes cd-bounce { 0%, 100% { transform: translateY(-8px); opacity: .55; } 50% { transform: translateY(8px); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .cd-arrow { animation: none; } }
 @media (max-width: 640px) { .cd-arrow { display: none; } }
+
+/* Pillar page titles: number on line 1, name on line 2 (never wraps) */
+.hero h1.pillar-title { max-width: none; font-size: clamp(1.3rem, 6vw, 3.4rem); }
+.pillar-title .nw { white-space: nowrap; }
