@@ -159,3 +159,10 @@ footer { margin-top: 0; }
   .links::-webkit-scrollbar { display: none; }
   .menu { display: none !important; }
 }
+
+/* Logo */
+.brand { display: inline-flex; align-items: center; gap: .6rem; }
+.brand-logo { width: 44px; height: 44px; border-radius: 50%; background: #fff; flex: none; }
+.footer-logo { display: block; width: 72px; height: 72px; margin: 0 auto .5rem; border-radius: 50%; background: #fff; }
+.logo-feature { width: 100%; max-width: 360px; height: auto; margin: 0 auto; display: block; }
+@media (max-width: 699px) { .brand-logo { width: 34px; height: 34px; } }
