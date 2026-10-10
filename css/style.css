@@ -166,3 +166,75 @@ footer { margin-top: 0; }
 .footer-logo { display: block; width: 72px; height: 72px; margin: 0 auto .5rem; border-radius: 50%; background: #fff; }
 .logo-feature { width: 100%; max-width: 360px; height: auto; margin: 0 auto; display: block; }
 @media (max-width: 699px) { .brand-logo { width: 34px; height: 34px; } }
+
+/* Photos */
+.photo { display: block; width: 100%; height: auto; border-radius: 10px; }
+.card .photo { aspect-ratio: 4 / 3; object-fit: cover; margin-bottom: .9rem; }
+
+.photo-round { display: block; width: 9rem; height: 9rem; margin: 0 auto .75rem; border-radius: 50%; object-fit: cover; object-position: 62% 40%; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+
+/* Council tree: President > Vice Presidents > departments > members */
+.wrap.wide { max-width: 1180px; }
+.tree { --line: var(--maroon); --gap: 28px; text-align: center; }
+.tree ul { display: flex; justify-content: center; list-style: none; margin: 0; padding: var(--gap) 0 0; position: relative; }
+.tree > ul { padding-top: 0; }
+.tree li { position: relative; padding: var(--gap) .6rem 0; text-align: center; }
+.tree > ul > li { padding-top: 0; }
+.tree li::before, .tree li::after { content: ""; position: absolute; top: 0; right: 50%; width: 50%; height: var(--gap); border-top: 3px solid var(--line); }
+.tree li::after { right: auto; left: 50%; border-left: 3px solid var(--line); }
+.tree li:only-child::before, .tree li:only-child::after { display: none; }
+.tree li:only-child { padding-top: var(--gap); }
+.tree > ul > li, .tree > ul > li:only-child { padding-top: 0; }
+.tree li:first-child::before, .tree li:last-child::after { border: 0 none; }
+.tree li:last-child::before { border-right: 3px solid var(--line); border-radius: 0 8px 0 0; }
+.tree li:first-child::after { border-radius: 8px 0 0 0; }
+.tree ul ul::before { content: ""; position: absolute; top: 0; left: 50%; height: var(--gap); border-left: 3px solid var(--line); }
+.node { display: inline-block; min-width: 9rem; padding: .9rem 1rem; background: #fff; border: 2px solid var(--line); border-radius: 14px; box-shadow: 0 3px 10px rgba(0,0,0,.08); }
+.node h3 { margin: 0; font-size: 1.3rem; color: var(--maroon); }
+.node .role { margin: 0; opacity: .75; }
+.node .photo-round, .node .img-ph.round { width: 6rem; height: 6rem; margin: 0 auto .5rem; }
+.node-row { display: flex; gap: 1rem; justify-content: center; }
+.dept { display: inline-block; position: relative; margin-bottom: 1.1rem; padding: .35rem 1.2rem; background: var(--maroon); color: #fff; border-radius: 999px; font-family: 'Oswald', sans-serif; font-size: 1.15rem; letter-spacing: .02em; }
+.dept::after { content: ""; position: absolute; left: 50%; top: 100%; height: 1.1rem; border-left: 3px solid var(--line); }
+.tree ul.members { display: block; padding: 0; }
+.tree ul.members::before { display: none; }
+.tree ul.members li { padding: 0 0 .9rem; }
+.tree ul.members li::before, .tree ul.members li::after { display: none; }
+@media (max-width: 900px) {
+  .tree ul, .node-row { flex-direction: column; align-items: center; }
+  .tree li::before, .tree li::after, .tree ul ul::before { display: none; }
+  .tree li, .tree li:only-child { padding-top: 1.1rem; }
+  .tree > ul > li { padding-top: 0; }
+  .tree ul { padding-top: 0; }
+  .tree ul.members li { padding-top: 0; }
+  .node-row { gap: .75rem; }
+}
+
+/* Team tree: every photo/placeholder is the same 9rem circle */
+.node { min-width: 11.5rem; }
+.node .photo-round, .node .img-ph.round { width: 9rem; height: 9rem; object-fit: cover; }
+
+/* Photos fill the same boxes the placeholders used (4:3 cards, 16:7 wide card); posters/infographics are shown whole */
+.split .photo { aspect-ratio: 4 / 3; object-fit: cover; }
+.card-wide .photo { aspect-ratio: 16 / 7; }
+.photo.fit { object-fit: contain; background: var(--cream); }
+
+/* Photos enlarge in place: hover (mouse) or tap (touch). The box never changes size. */
+.zoomable { position: relative; display: block; border-radius: 10px; cursor: zoom-in; }
+.zoomable:focus-visible { outline: 3px solid var(--maroon); outline-offset: 3px; }
+.zoomable.is-grown { z-index: 50; }
+.zoomable::after { content: "\2922"; position: absolute; right: .55rem; top: .55rem; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; font-size: 1.1rem; line-height: 1; opacity: .85; pointer-events: none; transition: opacity .2s; }
+.zoomable::before { content: "Hover to enlarge"; position: absolute; left: 50%; bottom: .7rem; z-index: 2; transform: translateX(-50%); padding: .3rem .95rem; border-radius: 999px; background: rgba(0,0,0,.7); color: #fff; font-family: 'Oswald', sans-serif; font-size: .9rem; letter-spacing: .04em; white-space: nowrap; pointer-events: none; transition: opacity .2s; }
+.card .zoomable::before { bottom: 1.6rem; }
+.zoomable.is-grown::before, .zoomable.is-grown::after { opacity: 0; }
+@media (hover: none) { .zoomable::before { content: "Tap to enlarge"; } }
+.photo-grow { position: absolute; left: 50%; top: 0; z-index: 30; width: max(100%, min(30rem, 92vw)); height: auto; max-width: none; border: 4px solid #fff; border-radius: 12px; background: #fff; object-fit: contain; box-shadow: 0 14px 40px rgba(0,0,0,.45); transform: translateX(-50%) scale(.96); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .18s, transform .18s, visibility .18s; }
+.zoomable.is-grown .photo-grow { opacity: 1; visibility: visible; transform: translateX(-50%) scale(1); }
+.card:hover { position: relative; z-index: 5; }
+@media (prefers-reduced-motion: reduce) { .photo-grow { transition: none; } }
+
+/* Tall pictures are cropped to fill the normal 4:3 box (posters keep their title at the top) */
+.photo.tall { object-fit: cover; object-position: 50% 35%; }
+.photo.tall[src*="poster"] { object-position: 50% 0%; }
+.photo.tall[src*="anniversary"] { object-position: 50% 25%; }
+.photo.tall[src*="umbrella"] { object-position: 50% 45%; }
