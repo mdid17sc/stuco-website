@@ -76,3 +76,18 @@ document.querySelectorAll('img.photo').forEach(function (img) {
   function mark() { if (img.naturalWidth && img.naturalHeight / img.naturalWidth > 1.2) img.classList.add('tall'); }
   if (img.complete) mark(); else img.addEventListener('load', mark);
 });
+
+// Timeline: mark events as done, happening now, or next up (Taiwan time)
+(function () {
+  var items = document.querySelectorAll('.gt-item[data-start]');
+  if (!items.length) return;
+  var now = Date.now(), next = null;
+  items.forEach(function (li) {
+    var start = new Date(li.dataset.start + 'T00:00:00+08:00').getTime();
+    var end = new Date(li.dataset.end + 'T00:00:00+08:00').getTime() + 864e5;
+    var tag = li.querySelector('.gt-tag');
+    if (now >= end) { li.classList.add('past'); tag.textContent = 'Done'; }
+    else if (now >= start) { li.classList.add('now'); tag.textContent = 'Happening now'; }
+    else if (!next) { next = li; li.classList.add('next'); tag.textContent = 'Next up'; }
+  });
+})();
