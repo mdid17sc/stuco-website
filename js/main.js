@@ -137,6 +137,7 @@ if (banner) {
   photos.forEach(function (img) {
     function setup() {
       if (img.parentNode.classList.contains('zoomable')) return;
+      if (img.closest('.pillar')) return; // pillar cards: plain photos, no enlarge
       if (img.naturalHeight / img.naturalWidth > 1.2) img.classList.add('tall'); else makeZoomable(img);
     }
     if (img.complete && img.naturalWidth) setup(); else img.addEventListener('load', setup);
