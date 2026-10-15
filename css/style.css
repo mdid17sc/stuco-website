@@ -219,19 +219,7 @@ footer { margin-top: 0; }
 .card-wide .photo { aspect-ratio: 16 / 7; }
 .photo.fit { object-fit: contain; background: var(--cream); }
 
-/* Photos enlarge in place: hover (mouse) or tap (touch). The box never changes size. */
-.zoomable { position: relative; display: block; border-radius: 10px; cursor: zoom-in; }
-.zoomable:focus-visible { outline: 3px solid var(--maroon); outline-offset: 3px; }
-.zoomable.is-grown { z-index: 50; }
-.zoomable::after { content: "\2922"; position: absolute; right: .55rem; top: .55rem; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; font-size: 1.1rem; line-height: 1; opacity: .85; pointer-events: none; transition: opacity .2s; }
-.zoomable::before { content: "Hover to enlarge"; position: absolute; left: 50%; bottom: .7rem; z-index: 2; transform: translateX(-50%); padding: .3rem .95rem; border-radius: 999px; background: rgba(0,0,0,.7); color: #fff; font-family: 'Oswald', sans-serif; font-size: .9rem; letter-spacing: .04em; white-space: nowrap; pointer-events: none; transition: opacity .2s; }
-.card .zoomable::before { bottom: 1.6rem; }
-.zoomable.is-grown::before, .zoomable.is-grown::after { opacity: 0; }
-@media (hover: none) { .zoomable::before { content: "Tap to enlarge"; } }
-.photo-grow { position: absolute; left: 50%; top: 0; z-index: 30; width: max(100%, min(30rem, 92vw)); height: auto; max-width: none; border: 4px solid #fff; border-radius: 12px; background: #fff; object-fit: contain; box-shadow: 0 14px 40px rgba(0,0,0,.45); transform: translateX(-50%) scale(.96); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .18s, transform .18s, visibility .18s; }
-.zoomable.is-grown .photo-grow { opacity: 1; visibility: visible; transform: translateX(-50%) scale(1); }
 .card:hover { position: relative; z-index: 5; }
-@media (prefers-reduced-motion: reduce) { .photo-grow { transition: none; } }
 
 /* Tall pictures are cropped to fill the normal 4:3 box (posters keep their title at the top) */
 .photo.tall { object-fit: cover; object-position: 50% 35%; }
