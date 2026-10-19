@@ -43,7 +43,7 @@ if (banner) {
   var note = wrap.querySelector('.doodle-note');
   function draw() {
     if (!link) return;
-    var W = document.documentElement.clientWidth, y0 = 0, x0 = 0; // fixed overlay: viewport coordinates
+    var W = document.documentElement.clientWidth, y0 = 0, x0 = 0; // drawn once at the top of the page, so it scrolls away with the page
     var lr = link.getBoundingClientRect();
     var nw = note.offsetWidth, nh = note.offsetHeight;
     var ex = lr.left + lr.width / 2 + x0, ey = lr.bottom + y0 + 8;
