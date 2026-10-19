@@ -46,7 +46,8 @@ if (banner) {
     var W = document.documentElement.clientWidth, y0 = 0, x0 = 0; // drawn once at the top of the page, so it scrolls away with the page
     var lr = link.getBoundingClientRect();
     var nw = note.offsetWidth, nh = note.offsetHeight;
-    var ex = lr.left + lr.width / 2 + x0, ey = lr.bottom + y0 + 8;
+    var navBottom = link.closest('nav').getBoundingClientRect().bottom;
+    var ex = lr.left + lr.width / 2 + x0, ey = navBottom + y0 + 8; // arrow tip sits just under the nav bar
     var narrow = W < 700;
     var nl = Math.min(W - nw - 12, Math.max(12, ex - nw - (narrow ? 0 : 60)));
     var nt = ey + (narrow ? 130 : 105);

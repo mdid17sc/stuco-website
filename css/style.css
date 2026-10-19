@@ -140,7 +140,7 @@ footer { margin-top: 0; }
 .pillar-title .nw { white-space: nowrap; }
 
 /* Feedback pillar: hand-drawn scribble pointing at the Give Feedback nav link */
-.doodle { position: absolute; inset: 0 0 auto 0; height: 0; z-index: 9999; pointer-events: none; }
+.doodle { position: absolute; inset: 0 0 auto 0; height: 0; z-index: 50; pointer-events: none; }
 .doodle-svg { position: absolute; left: 0; top: 0; overflow: visible; }
 .d-line, .d-head { stroke: #ff7a1a; stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; }
 .d-line { stroke-dashoffset: var(--len, 600); animation: doodle-draw 4.2s ease-in-out infinite; }
